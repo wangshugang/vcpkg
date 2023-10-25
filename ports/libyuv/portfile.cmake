@@ -3,10 +3,10 @@ vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
 vcpkg_from_git(
     OUT_SOURCE_PATH SOURCE_PATH
     URL https://chromium.googlesource.com/libyuv/libyuv
-    REF 0faf8dd0e004520a61a603a4d2996d5ecc80dc3f
+    REF 331c361581896292fb46c8c6905e41262b7ca95f   #1878
     # Check https://chromium.googlesource.com/libyuv/libyuv/+/refs/heads/main/include/libyuv/version.h for a version!
-    PATCHES
-        fix-cmakelists.patch
+    ###PATCHES
+        ###fix-cmakelists.patch
 )
 
 vcpkg_cmake_configure(
@@ -25,7 +25,7 @@ vcpkg_cmake_config_fixup(CONFIG_PATH share/cmake/libyuv)
 file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/debug/include)
 file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/debug/share)
 
-configure_file(${CMAKE_CURRENT_LIST_DIR}/libyuv-config.cmake ${CURRENT_PACKAGES_DIR}/share/${PORT} COPYONLY)
+configure_file(${CMAKE_CURRENT_LIST_DIR}/libyuv-config.cmake ${CURRENT_PACKAGES_DIR}/share/${PORT}.cfg COPYONLY)
 file(INSTALL ${SOURCE_PATH}/LICENSE DESTINATION ${CURRENT_PACKAGES_DIR}/share/${PORT} RENAME copyright)
 
 vcpkg_cmake_get_vars(cmake_vars_file)
