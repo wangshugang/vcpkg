@@ -1,17 +1,18 @@
 vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
 
-set(LIBVPX_VERSION 1.12.0)
+set(LIBVPX_VERSION 1.13.1)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO webmproject/libvpx
     REF v${LIBVPX_VERSION}
-    SHA512 dc059bc3102b75524ae29989372334b3e0f2acf1520e5a4daa4073831bb55949d82897c498fb9d2d38b59f1a66bb0ad24407d0d086b1e3a8394a4933f04f2ed0
+    ###SHA512 dc059bc3102b75524ae29989372334b3e0f2acf1520e5a4daa4073831bb55949d82897c498fb9d2d38b59f1a66bb0ad24407d0d086b1e3a8394a4933f04f2ed0
+    SHA512 49706838563c92fab7334376848d0f374efcbc1729ef511e967c908fd2ecd40e8d197f1d85da6553b3a7026bdbc17e5a76595319858af26ce58cb9a4c3854897
     HEAD_REF master
-    PATCHES
-        0002-Fix-nasm-debug-format-flag.patch
-        0003-add-uwp-v142-and-v143-support.patch
-        0004-remove-library-suffixes.patch
+    ###PATCHES
+        ###0002-Fix-nasm-debug-format-flag.patch
+        ###0003-add-uwp-v142-and-v143-support.patch
+        ###0004-remove-library-suffixes.patch
 )
 
 vcpkg_find_acquire_program(PERL)
